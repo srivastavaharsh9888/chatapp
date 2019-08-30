@@ -1,0 +1,360 @@
+body {
+   background: #ecf0f1;
+   margin-bottom: 3em;
+}
+
+/* flash.css */
+.flash-container {
+  position: absolute;
+  left: 50%;
+  margin-left: -250px;
+  top: 10%;
+  background: white;
+  color: rgb(198, 79, 79);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.09), 0 6px 6px rgba(0,0,0,0.13);
+  width: 500px;
+  height: 50px;
+  text-align: center;
+  z-index: 100;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  font-family: 'Assistant', sans-serif;
+  font-size: 2.5em;
+  letter-spacing: 0.6px;
+}
+
+@media only screen and (max-width: 500px) {
+  .flash-container {
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    margin-left: -150px;
+    top: 10%;
+    background: white;
+    color: rgb(198, 79, 79);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    z-index: 100;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    -webkit-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+    font-family: 'Assistant', sans-serif;
+    font-size: 1.5em;
+    letter-spacing: 0.6px;
+  }
+}
+
+
+/* nav.css */
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:900');
+
+.nav-container {
+  height: 60px;
+  background-color: #3498db;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  padding: 10px 40px;
+  font-family: 'Assistant', sans-serif;
+  letter-spacing: 0.6px;
+}
+
+@keyframes move {
+    0%   {transform: rotate(-10deg);}
+    25%  {transform: rotate(10deg);}
+    50%  {transform: rotate(-10deg);}
+    75%  {transform: rotate(10deg);}
+    100% {margin-left: 0; transform: rotate(-10deg);}
+}
+
+.nav-logo {
+  color: white;
+  font-size: 2.5em;
+  float: left;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.nav-button {
+  font-family: 'Assistant', sans-serif;
+  height: 40px;
+  width: 100px;
+  background: rgb(255,255,255);
+  border-radius: 4px;
+  color: #3498db;
+  float: right;
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-right: 10px;
+  margin-top: 6px;
+  border-radius: 2px;
+  padding-top: 7px;
+  text-align: center;
+  transition: box-shadow 0.2s cubic-bezier(.25,.8,.25,1);
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.nav-button:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.09), 0 6px 6px rgba(0,0,0,0.13);
+}
+
+@media only screen and (max-width: 500px) {
+  .nav-container {
+    height: 60px;
+    background-color: #3498db;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.09), 0 6px 6px rgba(0,0,0,0.13);
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Assistant', sans-serif;
+    letter-spacing: 0.6px;
+  }
+
+  .nav-logo {
+    color: white;
+    font-size: 2em;
+    float: left;
+    cursor: pointer;
+    padding-top: 5px;
+  }
+
+  .nav-button {
+    font-family: 'Assistant', sans-serif;
+    height: 30px;
+    width: 80px;
+    background: white;
+    color: #3498db;
+    float: right;
+    font-size: 1em;
+    margin-top: 12px;
+    border-radius: 2px;
+    padding-top: 7px;
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  }
+}
+
+
+/*********** BODY **************/
+/* Change Body Attributes */
+html, body {
+    font-family: 'Open Sans', serif;
+    background-color: blanchedalmond;
+    height: 100%;
+}
+.fill {
+    height: 100%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+
+/******************** MAIN WRAPPERS *******************/
+/* Main Window - Boxed style */
+.chat-wrap {
+    height: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: white;
+    overflow: hidden;
+}
+/* Panel Wrapper: Side Menu - Content Window */
+.panel-wrap {
+    height: 100%;
+    padding: 0;
+}
+/* Section Wrapper: Conversations - Contacts - Messages - Details */
+.section-wrap {
+    height: 100%;
+}
+/* Header Wrapper */
+.header-wrap {
+    height: 10%;
+}
+/* Content Wrapper */
+.content-wrap {
+    height: 90%;
+    overflow: auto;
+}
+/* Messages Wrapper */
+.content-wrap.messages {
+    height: 75%;
+}
+/* Message Text Wrapper */
+.send-wrap {
+    height: 15%;
+}
+
+
+/**************** HEADER ****************/
+/* Header Item */
+.chat-header {
+    height: 100%;
+    width: 100%;
+
+    background: deepskyblue;
+    box-shadow: 0 1px 1px;
+
+    display: table;
+}
+/* Header Title */
+.chat-header h4 {
+    display: table-cell;
+    vertical-align: middle;
+
+    width: 90%;
+}
+/* Header Button */
+.header-button {
+    display: table-cell;
+    vertical-align: middle;
+    color: #333;
+}
+/* Header Properties */
+.header-button a {
+    padding: 0;
+}
+.chat-header .btn:hover {
+    transition: color 0.5s ease;
+    color: #333;
+}
+
+
+/************* CONVERSATIONS *************/
+/* Conversation Item */
+.conversation {
+    text-align: left;
+    padding: 8px 10px 5px;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+
+    transition: background-color 0.5s ease;
+}
+/* Conversation Properties */
+.conversation:hover {
+     background-color: whitesmoke;
+}
+
+/******************* CONTACTS ***************/
+/* Contact Item */
+.contact {
+    padding: 21px 10px 12px;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    display: inline-block;
+
+    transition: background-color 0.5s ease;
+}
+/* Contact Properties */
+.contact.btn:hover {
+    background-color: whitesmoke;
+}
+
+/**************** MESSAGES *****************/
+/* Message Item */
+.msg
+{
+    padding: 8px 10px 5px;
+    border-bottom: 1px solid #ddd;
+}
+#Messages{
+  height: 500px;
+}
+/* Message Sender */
+.message-wrap .media-heading
+{
+    color: #2285b3;
+    font-weight: bolder;
+}
+/* Message Time */
+.time
+{
+    color:#bfbfbf;
+}
+
+
+/*************** SEND MESSAGE **********************/
+/* Send Message Item */
+.send-message {
+    width: 100%;
+    height: 100%;
+
+    background-color: whitesmoke;
+    box-shadow: 0 -1px 1px;
+
+    display: table;
+}
+/* Message Text */
+.message-text
+{
+    padding: 2px;
+    display: table-cell;
+    vertical-align: middle;
+}
+/* Send Button */
+.send-button
+{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+
+    width: 10%;
+}
+/* Send Message Properties */
+.no-resize-bar
+{
+    resize: none;
+    height: 100% !important;
+}
+.send-button a {
+    padding: 0;
+}
+.send-message .btn:hover {
+    transition: color 0.5s ease;
+    color: #0451b7;
+}
+
+
+
+/*************** OTHER ********************/
+/* Remove Bootstrap Button Effect */
+.btn.active, .btn:active {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+/* Fix Bootstrap Media Body Display */
+/* For Conversations and Contacts */
+.conversation .media-body, .contact .media-body {
+    display: block;
+    width: 100%;
+}
+
+/* Animate Side Information Menu */
+#Messages {
+    -webkit-transition: width 0.15s ease, margin 0.15s ease;
+    -moz-transition: width 0.15s ease, margin 0.15s ease;
+    -o-transition: width 0.15s ease, margin 0.15s ease;
+    transition: width 0.15s ease, margin 0.15s ease;
+}
+
+/* Scrollbar Attributes */
+body::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+::-webkit-scrollbar-thumb {
+    background:#ddd;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+.media-heading{
+  font-weight: bolder;
+}

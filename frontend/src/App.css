@@ -1,0 +1,21 @@
+/* Scrollbar Attributes */
+body::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+::-webkit-scrollbar-thumb {
+    background:#ddd;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+/* Change Body Attributes */
+html, body {
+    font-family: 'Open Sans', serif;
+    background-color: blanchedalmond;
+    height: 100%;
+}
