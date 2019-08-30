@@ -53,11 +53,19 @@ class Home extends Component {
         else{
             self.setState(res)
         }
+    });
+
+    socket.addEventListener('close', function (event) {
+      socket=new WebSocket('wss://chatingbunny.herokuapp.com/ws/chat/all/');
     });  
+
   }
 
   sendMsg= (value)=> {
-      socket.send(JSON.stringify({"type":"message","token":window.localStorage.getItem("token"),"message":value}));
+      let token=window.localStorage.getItem("token")
+      if(value){
+       socket.send(JSON.stringify({"type":"message","token":token,"message":value}));
+      }
   }
 
   getMessage = () =>{

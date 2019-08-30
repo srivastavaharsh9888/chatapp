@@ -4,7 +4,7 @@ class Flash extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.props.resetError();
-    }, 2000);
+    }, 3000);
   }
 
   render() {

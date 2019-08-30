@@ -10,8 +10,16 @@ class SendMsg extends Component {
       this.state = {"message":""};
       this.messageSubmit = this.messageSubmit.bind(this);
       this.handleChange = this.handleChange.bind(this);
+      this.handleEnter = this.handleEnter.bind(this);
     }
   
+  handleEnter(event){
+    if(event.keyCode==13 && this.state.message){
+      this.messageSubmit();
+      this.setState({"message":""})
+    }
+  }  
+
   handleChange(event) {
     let obj={}
     obj[event.currentTarget.name]=event.currentTarget.value;
@@ -19,8 +27,10 @@ class SendMsg extends Component {
   }
   
   messageSubmit(){
-    this.props.sendMessage(this.state.message)
-    this.setState({"message":""})
+    if(this.state.message){
+      this.props.sendMessage(this.state.message)
+      this.setState({"message":""})
+    }
   }
 
   addEmoji = (e) => {
@@ -36,7 +46,6 @@ class SendMsg extends Component {
       k.style.display="block"
     else
       k.style.display="none"
-
   }
   
   render() {
@@ -47,7 +56,7 @@ class SendMsg extends Component {
         </div>
         <div className="send-message">
           <div className="message-text">
-            <textarea name="message" onChange={this.handleChange} value={this.state.message} className="no-resize-bar form-control" rows="2" placeholder="Write a message..."></textarea>
+            <textarea name="message" onChange={this.handleChange} onKeyDown={this.handleEnter} value={this.state.message} className="no-resize-bar form-control" rows="2" placeholder="Write a message..."></textarea>
           </div>
           <div className="send-button">
             <a className="btn" onClick={this.messageSubmit}>Send <i className="fa fa-send"></i></a>

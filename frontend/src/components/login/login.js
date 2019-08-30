@@ -28,6 +28,14 @@ class login extends Component {
 	
 	handleSubmit(e) {
 		e.preventDefault();
+		const pattern = /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
+	    const result = pattern.test(this.state.username);
+		if(result===false){
+		 this.setState({
+		   error:"Please ensure username is email.",
+		 })
+		 return;
+		} 
 		axios
         .post(
           urlFor("Register/"),
@@ -37,8 +45,9 @@ class login extends Component {
 			alert('Successfully Logged in');
 		})
 		.catch(res=>{
-			console.log(res.response)
-			this.setState({ error: 'Something went wrong' });
+			let errorMsg="";
+			for(let r in res.response.data){for(let j in res.response.data[r]){errorMsg=errorMsg+res.response.data[r][j]+"\n"}}
+			this.setState({ error:errorMsg });
 		});		
 	}
 	
@@ -84,19 +93,6 @@ class login extends Component {
 		event.preventDefault();
 	}
 
-	firstMethod(e) {
-		const re = /[0-9]+/g;
-		if (!re.test(e.key)) {
-		e.preventDefault();
-		}
-	}
-
-	secondMethod(e) {
-		const re = /[a-zA-Z ]+/g;
-		if (!re.test(e.key)) {
-		e.preventDefault();
-		}
-	}
 
 	resetError = () => {
 		this.setState({ error: '' });
@@ -129,10 +125,10 @@ class login extends Component {
 							<div className="col-lg-12">
 								<form id="login-form" role="form" style={{"display": "block"}}>
 									<div className="form-group">
-										<input type="text" name="usernameLogin" id="usernameLogin" value={this.state.usernameLogin} placeholder="Mobile Number" className="form-control" ref="first" onKeyPress={(e) => this.firstMethod(e)} maxLength="10" pattern="\d{10}" onChange={this.handleChange} />
+										<input type="text" name="usernameLogin" id="usernameLogin" value={this.state.usernameLogin} placeholder="Email" className="form-control" ref="first" pattern="\d{10}" onChange={this.handleChange} />
 									</div>
 									<div className="form-group">
-									<input type="password" name="passwordLogin" id="passwordLogin" value={this.state.passwordLogin} className="form-control" placeholder="Password" onChange={this.handleChange}/>
+										<input type="password" name="passwordLogin" id="passwordLogin" value={this.state.passwordLogin} className="form-control" placeholder="Password" onChange={this.handleChange}/>
 									</div>
 									<div className="form-group">
 										<div className="row">
@@ -146,10 +142,10 @@ class login extends Component {
 									
 								<form id="register-form" style={{"display": "none"}}>
 									<div className="form-group" onSubmit={this.handleSubmit}>
-										<input type="text" name="username" id="usernname" value={this.state.username} className="form-control" placeholder="Mobile Number" ref="first" onKeyPress={(e) => this.firstMethod(e)} maxLength="10" pattern="\d{10}" onChange={this.handleChange}/>
+										<input type="text" name="username" id="usernname" value={this.state.username} className="form-control" placeholder="Mobile Number" ref="first"  onChange={this.handleChange}/>
 									</div>
 									<div className="form-group">
-										<input type="text" name="name" value={this.state.name} id="name" className="form-control" placeholder="Name" ref="second" onKeyPress={(e) => this.secondMethod(e)} onChange={this.handleChange}/>
+										<input type="text" name="name" value={this.state.name} id="name" className="form-control" placeholder="Name" ref="second" onChange={this.handleChange}/>
 									</div>
 									<div className="form-group">
 										<input type="password" name="password" id="password" value={this.state.password} className="form-control" placeholder="Password" onChange={this.handleChange}/>
