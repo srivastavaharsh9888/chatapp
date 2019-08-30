@@ -33,7 +33,7 @@ class Home extends Component {
 
   componentWillMount() {
     let self=this;
-    socket=new WebSocket('ws://localhost:8000/ws/chat/all/');
+    socket=new WebSocket('wss://chatingbunny.herokuapp.com/ws/chat/all/');
     socket.addEventListener('open', function (event) {
         socket.send(JSON.stringify({"type":"online_users","token":window.localStorage.getItem("token")}));
     });
@@ -76,7 +76,7 @@ class Home extends Component {
   }
 
   render() {
-    const { error,online_users,messageList } = this.state;
+    const { error } = this.state;
 
     return (
       <div className="App">

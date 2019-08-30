@@ -7,7 +7,6 @@ class MsgList extends Component {
 
   render() {
     const { messageList } = this.props;
-    console.log(messageList)
     const cards = messageList.map((message, index) => {
       return (
         <div className="msg" key={index}>

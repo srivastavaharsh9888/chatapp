@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import 'emoji-mart/css/emoji-mart.css'
+import { Picker } from 'emoji-mart'
 
 class SendMsg extends Component {
 
@@ -21,17 +23,35 @@ class SendMsg extends Component {
     this.setState({"message":""})
   }
 
-  render() {
-    const { notes, getNote, deleteNote } = this.props;
+  addEmoji = (e) => {
+      let emoji = e.native;
+      this.setState({
+        message: this.state.message + emoji
+      })
+  }
+  
+  showEmoji = () =>{
+    let k=document.getElementById("show")
+    if(k.style.display=="none")
+      k.style.display="block"
+    else
+      k.style.display="none"
 
+  }
+  
+  render() {
     return (
       <div className="row send-wrap">
+        <div id="show" style={{display:"none",position:"absolute",top:"5%",right:"0%"}}>
+           <Picker onSelect={this.addEmoji} />
+        </div>
         <div className="send-message">
           <div className="message-text">
             <textarea name="message" onChange={this.handleChange} value={this.state.message} className="no-resize-bar form-control" rows="2" placeholder="Write a message..."></textarea>
           </div>
           <div className="send-button">
             <a className="btn" onClick={this.messageSubmit}>Send <i className="fa fa-send"></i></a>
+            <button onClick={this.showEmoji}>Emoji</button>
           </div>
         </div>
       </div>
