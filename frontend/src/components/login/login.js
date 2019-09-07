@@ -28,14 +28,14 @@ class login extends Component {
 	
 	handleSubmit(e) {
 		e.preventDefault();
-		const pattern = /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
-	    const result = pattern.test(this.state.username);
-		if(result===false){
-		 this.setState({
-		   error:"Please ensure username is email.",
-		 })
-		 return;
-		} 
+		// const pattern = /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
+	 	// const result = pattern.test(this.state.username);
+		// if(result===false){
+		//  this.setState({
+		//    error:"Please ensure username is email.",
+		//  })
+		//  return;
+		// } 
 		axios
         .post(
           urlFor("Register/"),
@@ -66,7 +66,8 @@ class login extends Component {
            {"username":this.state.usernameLogin,"password":this.state.passwordLogin},
         )
         .then(res => {
-			console.log(res)
+			console.log(JSON.stringify(res))
+        	window.localStorage.setItem("userLoggedInData",JSON.stringify(res))
 			auth.login(() => {
 				this.props.history.push("/home");
 			  },res.data.token);

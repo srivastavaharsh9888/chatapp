@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-        // <div className="nav-button" onClick={() => toggleNote()} >
-        //   { showNote ? 'Cancel' :  '+ Note' }
-        // </div> 
 
 import auth from './../../authguard/auth';
+import './nav.css';
+
 class Nav extends Component {
   render() {
+    let {toggleVideo,videoAllowed,showButton}=this.props;
+
     return (
       <div className="nav-container">
         <div className="nav-logo">Chat App</div>
@@ -13,7 +14,13 @@ class Nav extends Component {
             window.location.reload();
         })} >
           { auth.isAuthenticated() ? 'Logout' :  'Sign In' }
-        </div> 
+        </div>
+        { 
+          showButton ?  
+          <div style={{fontSize:12}} onClick={() => toggleVideo()} className={videoAllowed ? "nav-button abc":"nav-button"} >Allow Video Chat</div> :
+          <div></div>
+        }
+
       </div>
     );
   }

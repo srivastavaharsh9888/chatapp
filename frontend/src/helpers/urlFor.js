@@ -1,5 +1,5 @@
 const urlFor = (endpoint) => {
- return `https://chatingbunny.herokuapp.com/api/chat/${endpoint}`;
+ return `http://localhost:8000/api/chat/${endpoint}`;
 };
 
 export default urlFor;

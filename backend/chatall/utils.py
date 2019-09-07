@@ -82,11 +82,26 @@ def send_message(detail):
     save_message(detail)
     return detail
 
+def makeACall(detail):
+    detail.update({"handle_type":"callComing" , "callingPerson":detail.get("username")})
+    return detail
+
+def callAccept(detail):
+    detail.update({"handle_type":"callAccept"})
+    return detail
+
+def myIdAdd(detail):
+    detail.update({"handle_type":"myIdAdd"})
+    return detail
+
 def get_json_to_send(argument): 
     switcher = { 
         "message": send_message, 
         "online_users": get_online_user, 
-        "user_disconnect":remove_online_user
+        "user_disconnect":remove_online_user,
+        "makecall":makeACall,
+        "callAccept":callAccept,
+        "myIdAdd":myIdAdd
     } 
     # get() method of dictionary data type returns  
     # value of passed argument if it is present  
