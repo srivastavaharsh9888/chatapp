@@ -13,13 +13,13 @@ If the message is sad :-( is appended to the end of message
 
 
 
-AFTER NEW UPDATE-:
-In frontend the helper folder act as a .env file.
-In backend putting the configuration setting from enviornment using os.environ.
+AFTER NEW UPDATE-:<br/>
+In frontend the helper folder act as a .env file.<br/>
+In backend putting the configuration setting from enviornment using os.environ.<br/>
 
-New Functionalities added-:
-Video Chat One to One.
-Messaging One to One.
+New Functionalities added-:<br/>
+Video Chat One to One.<br/>
+Messaging One to One.<br/>
 
 The application is live on-:<br/>
 https://chatrealworld.herokuapp.com
