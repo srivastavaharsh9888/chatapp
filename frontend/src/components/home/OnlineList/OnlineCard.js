@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import './online-card.css';
-import { Redirect } from 'react-router-dom';
-
 
 class OnlineCard extends Component {
 
+  //to make a video call from the list of online user 
   callPerson(username){
     this.props.callPerson({"type":"makecall","personCalled":username,"personCalling":JSON.parse(window.localStorage.getItem("userLoggedInData")).data.username},username)
   }

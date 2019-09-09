@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 
+//component to show the message list
 class MsgList extends Component {
+
   componentWillMount() {    
+    //get the previously saved messages
     this.props.getMessage();
   }
 

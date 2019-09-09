@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import 'emoji-mart/css/emoji-mart.css'
 import { Picker } from 'emoji-mart'
 
+//component used to send message to the single channel
 class SendMsg extends Component {
 
   constructor(props) {
@@ -13,6 +14,7 @@ class SendMsg extends Component {
       this.handleEnter = this.handleEnter.bind(this);
     }
   
+  //send message onn press of the enter key  
   handleEnter(event){
     if(event.keyCode==13 && this.state.message){
       this.messageSubmit();
@@ -20,12 +22,14 @@ class SendMsg extends Component {
     }
   }  
 
+  //set the value of the input field
   handleChange(event) {
     let obj={}
     obj[event.currentTarget.name]=event.currentTarget.value;
     this.setState(obj);
   }
   
+  //submit the message on submitting the send button
   messageSubmit(){
     if(this.state.message){
       this.props.sendMessage(this.state.message)
@@ -33,6 +37,7 @@ class SendMsg extends Component {
     }
   }
 
+  //function that add a emoji to the message
   addEmoji = (e) => {
       let emoji = e.native;
       this.setState({
@@ -40,6 +45,7 @@ class SendMsg extends Component {
       })
   }
   
+  //function to the show the emoji box
   showEmoji = () =>{
     let k=document.getElementById("show")
     if(k.style.display=="none")

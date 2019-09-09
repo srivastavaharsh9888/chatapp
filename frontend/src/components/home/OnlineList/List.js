@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import OnlineCard from './OnlineCard';
 
+//component to show the list of online users
 class List extends Component {
  
   render() {

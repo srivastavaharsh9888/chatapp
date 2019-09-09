@@ -26,6 +26,7 @@ class login extends Component {
 		this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
 	}
 	
+	//Event Handler for managing registration
 	handleSubmit(e) {
 		e.preventDefault();
 		// const pattern = /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
@@ -51,13 +52,14 @@ class login extends Component {
 		});		
 	}
 	
+	//setting the value of user input	
 	handleChange(event) {
 		let obj={}
 		obj[event.currentTarget.name]=event.currentTarget.value;
 		this.setState(obj);
 	}
 
-
+	//event handler for the submission of the login form
 	handleLoginSubmit(e) {
 		e.preventDefault();
 		axios
@@ -77,7 +79,7 @@ class login extends Component {
 		});		
 	}
 
-	
+	//function that open registration form	
 	openRegisterForm(event){
 		document.getElementById("register-form").style.display="block";
 		document.getElementById("login-form").style.display="none";
@@ -86,6 +88,7 @@ class login extends Component {
 		event.preventDefault();
 	}
 
+	//function that open login form	
 	openLoginForm(event){
 		document.getElementById("register-form").style.display="none";
 		document.getElementById("login-form").style.display="block"; 
@@ -143,7 +146,7 @@ class login extends Component {
 									
 								<form id="register-form" style={{"display": "none"}}>
 									<div className="form-group" onSubmit={this.handleSubmit}>
-										<input type="text" name="username" id="usernname" value={this.state.username} className="form-control" placeholder="Mobile Number" ref="first"  onChange={this.handleChange}/>
+										<input type="text" name="username" id="usernname" value={this.state.username} className="form-control" placeholder="Email" ref="first"  onChange={this.handleChange}/>
 									</div>
 									<div className="form-group">
 										<input type="text" name="name" value={this.state.name} id="name" className="form-control" placeholder="Name" ref="second" onChange={this.handleChange}/>
